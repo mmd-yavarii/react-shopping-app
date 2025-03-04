@@ -15,18 +15,18 @@ function Layou({ children }) {
 
             <footer className={styles.footer}>
                 <div>
-                    <NavLink to="/">
+                    <NavLink replace={true} to="/">
                         <GrHomeRounded className={styles.icons} />
                     </NavLink>
 
-                    <NavLink to="/cart">
+                    <NavLink replace={true} to="/cart">
                         <BsCart3 className={styles.icons} />
                     </NavLink>
 
-                    <NavLink to="/bookmarks">
+                    <NavLink replace={true} to="/bookmarks">
                         <BsBookmarks className={styles.icons} />
                     </NavLink>
-                    <NavLink to="/profile">
+                    <NavLink replace={true} to="/profile">
                         <RiUserLine className={styles.icons} />
                     </NavLink>
                 </div>
