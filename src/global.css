@@ -7,6 +7,10 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    --text-color: #2d2d2d;
+    --background-color: #fafafa;
+    --them-color: dodgerblue;
 }
 
 * {
@@ -21,6 +25,12 @@
 body {
     min-width: 320px;
     min-height: 100vh;
+    --text-color: #2d2d2d;
+    background-color: var(--background-color);
+}
+a:not(.active) {
+    color: var(--text-color);
+    opacity: 0.4;
 }
 
 .loading {
@@ -28,4 +38,15 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.active {
+    opacity: 1;
+    color: var(--them-color);
+}
+
+@media (max-width: 700px) {
+    a {
+        cursor: default;
+    }
 }

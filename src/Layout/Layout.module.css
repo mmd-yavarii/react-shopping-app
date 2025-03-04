@@ -1,0 +1,22 @@
+.footer {
+    width: 95%;
+    max-width: 400px;
+    padding: 1em;
+    position: fixed;
+    bottom: 0.7em;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 17px;
+    box-shadow: 2px 1px 4px #d8d8d8;
+}
+.footer div {
+    margin: 0 auto;
+    max-width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.icons {
+    font-size: 1.2rem;
+}
