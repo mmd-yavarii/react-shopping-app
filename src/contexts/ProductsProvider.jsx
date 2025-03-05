@@ -40,7 +40,11 @@ function ProductsProvider({ children }) {
 
     return (
         <ProductsContext.Provider value={{ products, dispatchProducts }}>
-            {state.isLoading && <PulseLoader className="loading" />}
+            {state.isLoading && (
+                <div className="loading">
+                    <PulseLoader />
+                </div>
+            )}
             {state.error ? <ErrorPage message={state.error} /> : children}
         </ProductsContext.Provider>
     );

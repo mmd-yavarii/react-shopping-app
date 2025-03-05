@@ -5,30 +5,31 @@
 }
 
 .buttonsCointainer button {
-    font-size: 1.5rem;
-    width: 1.5em;
-    height: 1.5em;
+    font-size: 1.8rem;
+    width: 1.2em;
+    height: 1.2em;
     padding: 0.2em;
-    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--border-color);
-    background-color: var(--them-color);
-    color: #fff;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    background-color: #fff;
 }
 
 .buttonsCointainer p {
-    width: 2.3em;
-    height: 2.3em;
-    background-color: #fff;
-    color: var(--them-color);
-    border-radius: 50%;
-    border: 1px solid var(--border-color);
+    font-size: 1rem;
+    width: 2.1em;
+    height: 2.2em;
+    padding: 0.2em;
+
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: default;
+    border: 2px solid var(--border-color);
+    background-color: #fff;
+    border-radius: 12px;
 }
 
 @media (min-width: 900px) {

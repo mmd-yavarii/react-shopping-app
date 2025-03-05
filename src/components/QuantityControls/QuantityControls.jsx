@@ -1,6 +1,10 @@
 import { useEffect, useState, useContext } from 'react';
 import { CartContext } from '../../contexts/CartProvider';
 
+import { MdOutlineRemoveShoppingCart } from 'react-icons/md';
+
+import { BsCartPlus, BsCartDash } from 'react-icons/bs';
+
 import styles from './QuantityControls.module.css';
 
 function QuantityControls({ info }) {
@@ -23,9 +27,17 @@ function QuantityControls({ info }) {
 
     return (
         <div className={styles.buttonsCointainer}>
-            <button onClick={decrease}>-</button>
+            <button onClick={decrease}>
+                {quantity == 1 ? (
+                    <MdOutlineRemoveShoppingCart />
+                ) : (
+                    <BsCartDash />
+                )}
+            </button>
             <p>{quantity}</p>
-            <button onClick={increase}>+</button>
+            <button onClick={increase}>
+                <BsCartPlus />
+            </button>
         </div>
     );
 }
