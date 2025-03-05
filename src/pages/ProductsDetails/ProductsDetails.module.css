@@ -38,3 +38,9 @@
     font-size: 1.5rem;
     background-color: transparent;
 }
+
+@media (min-width: 900px) {
+    .buy {
+        cursor: pointer;
+    }
+}

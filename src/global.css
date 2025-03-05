@@ -27,6 +27,8 @@
 body {
     min-width: 320px;
     min-height: 100vh;
+    max-width: 900px;
+    margin: auto;
     --text-color: #2d2d2d;
     background-color: var(--background-color);
     padding-bottom: 5em;
