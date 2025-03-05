@@ -6,6 +6,7 @@ import CartPage from './pages/CartPage';
 import BookmarkPage from './pages/BookmarkPage';
 import ProfilePage from './pages/ProfilePage';
 import ProductsDetails from './pages/ProductsDetails/ProductsDetails';
+import ErrorPage from './pages/ErrorPage';
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
                     <Route path="/cart" element={<CartPage />} />
                     <Route path="/bookmarks" element={<BookmarkPage />} />
                     <Route path="/profile" element={<ProfilePage />} />
+                    <Route path="/*" element={<ErrorPage message="404" />} />
                 </Routes>
             </Layou>
         </>

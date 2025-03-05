@@ -1,6 +1,6 @@
 import { createContext, useEffect, useReducer } from 'react';
 import { PulseLoader } from 'react-spinners';
-import ErrorPage from '../components/ErrorPage';
+import ErrorPage from '../pages/ErrorPage';
 
 const ProductsContext = createContext();
 
