@@ -3,7 +3,7 @@
     align-items: center;
     gap: 1em;
     background-color: #fff;
-    box-shadow: 2px 1px 4px #d8d8d8;
+    border: 1px solid var(--border-color);
     margin: 0.7em;
     padding: 0.5em;
     min-height: 9em;
@@ -18,6 +18,6 @@
     color: var(--text-color);
 }
 .cardInfo p:first-child {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     margin-bottom: 1em;
 }

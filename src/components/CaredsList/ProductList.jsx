@@ -9,13 +9,8 @@ function ProductList() {
 
     return (
         <div>
-            {products.map((i, index) => (
-                <ProductCard
-                    key={i.id}
-                    info={i}
-                    // index={index}
-                    // products={products}
-                />
+            {products.map((i) => (
+                <ProductCard key={i.id} info={i} />
             ))}
         </div>
     );
@@ -25,9 +20,9 @@ export default ProductList;
 
 function ProductCard({ info }) {
     const { image, title, price, id } = info;
-    // index === process.le;
+
     return (
-        <Link to={`/product/${id}`}>
+        <Link to={`/product/${id}`} state={info}>
             <div className={styles.cards}>
                 <img src={image} alt={title} />
 

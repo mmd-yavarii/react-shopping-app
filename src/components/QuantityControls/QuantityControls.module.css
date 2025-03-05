@@ -1,0 +1,31 @@
+.buttonsCointainer {
+    display: flex;
+    align-items: center;
+    gap: 0.2em;
+}
+
+.buttonsCointainer button {
+    font-size: 1.5rem;
+    width: 1.5em;
+    height: 1.5em;
+    padding: 0.2em;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-color);
+    background-color: var(--them-color);
+    color: #fff;
+}
+
+.buttonsCointainer p {
+    width: 2.3em;
+    height: 2.3em;
+    background-color: #fff;
+    color: var(--them-color);
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,0 +1,40 @@
+.imageComtainer {
+    display: flex;
+    gap: 2em;
+    flex-direction: column;
+    background-color: #fff;
+    border-bottom: 1px solid var(--border-color);
+    padding: 1em;
+}
+
+.imageComtainer img {
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+.priceAndTitle {
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+.priceAndTitle p:last-child {
+    color: var(--them-color);
+}
+.description {
+    font-size: 0.8rem;
+    padding: 1em;
+    opacity: 0.5;
+}
+
+.btns {
+    width: 100%;
+    padding: 0 0.5em;
+}
+.buy {
+    margin-left: 0.2em;
+    color: var(--them-color);
+    font-size: 1.5rem;
+    background-color: transparent;
+}
