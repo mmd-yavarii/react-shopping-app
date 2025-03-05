@@ -24,7 +24,8 @@ function reducer(state, action) {
 }
 
 function ProductsProvider({ children }) {
-    const [products, dispatchProducts] = useReducer(reducer, initialState);
+    const [state, dispatchProducts] = useReducer(reducer, initialState);
+    const products = state.data;
 
     useEffect(() => {
         fetch('https://fakestoreapi.com/products')
@@ -39,8 +40,8 @@ function ProductsProvider({ children }) {
 
     return (
         <ProductsContext.Provider value={{ products, dispatchProducts }}>
-            {products.isLoading && <PulseLoader className="loading" />}
-            {products.error ? <ErrorPage message={products.error} /> : children}
+            {state.isLoading && <PulseLoader className="loading" />}
+            {state.error ? <ErrorPage message={state.error} /> : children}
         </ProductsContext.Provider>
     );
 }

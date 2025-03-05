@@ -1,7 +1,9 @@
+import ProductList from '../components/CaredsList/ProductList';
+
 function HomePage() {
     return (
         <div>
-            <h1>hello</h1>
+            <ProductList />
         </div>
     );
 }

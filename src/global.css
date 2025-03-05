@@ -20,6 +20,7 @@
     outline: none;
     text-decoration: none;
     border: none;
+    font-weight: 700;
 }
 
 body {
@@ -27,8 +28,9 @@ body {
     min-height: 100vh;
     --text-color: #2d2d2d;
     background-color: var(--background-color);
+    padding-bottom: 5em;
 }
-a:not(.active) {
+footer a:not(.active) {
     color: var(--text-color);
     opacity: 0.4;
 }

@@ -1,0 +1,23 @@
+.cards {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    background-color: #fff;
+    box-shadow: 2px 1px 4px #d8d8d8;
+    margin: 0.7em;
+    padding: 0.5em;
+    min-height: 9em;
+    border-radius: 15px;
+}
+
+.cards img {
+    width: 5em;
+}
+
+.cardInfo {
+    color: var(--text-color);
+}
+.cardInfo p:first-child {
+    font-size: 0.8rem;
+    margin-bottom: 1em;
+}

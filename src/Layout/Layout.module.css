@@ -8,6 +8,7 @@
     transform: translateX(-50%);
     border-radius: 17px;
     box-shadow: 2px 1px 4px #d8d8d8;
+    background-color: #fff;
 }
 .footer div {
     margin: 0 auto;
