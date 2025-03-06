@@ -1,14 +1,28 @@
+.header {
+    background-color: var(--background-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1em;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+.header p {
+    text-transform: capitalize;
+    font-size: 1.1rem;
+}
+
 .footer {
     width: 95%;
     max-width: 400px;
     padding: 1em;
     position: fixed;
-    bottom: 0.7em;
+    bottom: 0.3em;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 17px;
-    box-shadow: 2px 1px 4px #d8d8d8;
+    box-shadow: 2px -2px 4px #00000011;
     background-color: #fff;
+    border: 1px solid var(--border-color);
 }
 .footer div {
     margin: 0 auto;

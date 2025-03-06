@@ -12,6 +12,16 @@ function Layou({ children }) {
 
     return (
         <div>
+            {!loacation.includes('/product/') && (
+                <header className={styles.header}>
+                    <p>
+                        {loacation == '/'
+                            ? 'explore'
+                            : loacation.replace('/', '')}
+                    </p>
+                </header>
+            )}
+
             {children}
 
             {!loacation.includes('/product/') && (

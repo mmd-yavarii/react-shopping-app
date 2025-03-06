@@ -16,7 +16,7 @@ function QuantityControls({ info }) {
     }, [cart]);
 
     // add to cart handler
-    function increase() {
+    function increase(event) {
         dispatchCart({ type: 'ADD', payload: info });
     }
 
