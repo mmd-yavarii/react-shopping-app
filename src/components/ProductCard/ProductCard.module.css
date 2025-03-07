@@ -17,7 +17,10 @@
 .cardInfo {
     color: var(--text-color);
 }
+.rate {
+    font-size: 0.8rem;
+}
 .cardInfo p:first-child {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     margin-bottom: 1em;
 }

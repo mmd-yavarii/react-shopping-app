@@ -1,15 +1,13 @@
-import { Link } from 'react-router-dom';
-import styles from './ProductList.module.css';
-
 import { ProductsContext } from '../../contexts/ProductsProvider';
 import { useContext } from 'react';
+import ProductCard from '../ProductCard/ProductCard';
 
 function ProductList() {
-    const { products } = useContext(ProductsContext);
+    const { displayProducts, setDisplayProducts } = useContext(ProductsContext);
 
     return (
         <div>
-            {products.map((i) => (
+            {displayProducts.map((i) => (
                 <ProductCard key={i.id} info={i} />
             ))}
         </div>
@@ -17,20 +15,3 @@ function ProductList() {
 }
 
 export default ProductList;
-
-function ProductCard({ info }) {
-    const { image, title, price, id } = info;
-
-    return (
-        <Link to={`/product/${id}`} state={info}>
-            <div className={styles.cards}>
-                <img src={image} alt={title} />
-
-                <div className={styles.cardInfo}>
-                    <p>{title}</p>
-                    <p>{price} $</p>
-                </div>
-            </div>
-        </Link>
-    );
-}

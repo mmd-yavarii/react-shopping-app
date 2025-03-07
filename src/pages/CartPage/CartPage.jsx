@@ -1,13 +1,19 @@
 import { useContext, useEffect, useState } from 'react';
 import { CartContext } from '../../contexts/CartProvider';
 
+import { MdOutlineRemoveShoppingCart } from 'react-icons/md';
+
 import styles from './CartPage.module.css';
 import QuantityControls from '../../components/QuantityControls/QuantityControls';
 import { Link } from 'react-router-dom';
+import Empty from '../../components/Empty';
 
 function CartPage() {
     const { cart, dispatchCart } = useContext(CartContext);
     const [dispyalCartItems, setDisplayCartItems] = useState([]);
+    const totalPrice = cart
+        .reduce((acc, item) => acc + item.price, 0)
+        .toFixed(2);
 
     useEffect(() => {
         const uniqueItems = cart.filter(
@@ -31,30 +37,25 @@ function CartPage() {
                                 <span>Quantity</span> <span>{cart.length}</span>
                             </p>
                             <p>
-                                <span>Total Price</span> <span>$ {100}</span>
+                                <span>Total Price</span>{' '}
+                                <span>$ {totalPrice}</span>
                             </p>
                         </div>
                         <button>checkout</button>
                     </div>
                 </>
             ) : (
-                <EmptySession />
+                <Empty
+                    title="Your Cart Is Empty"
+                    message="Looks Like You Haven't Made Your Choise Yet..."
+                    icon={<MdOutlineRemoveShoppingCart fontSize="2rem" />}
+                />
             )}
         </div>
     );
 }
 
 export default CartPage;
-
-function EmptySession() {
-    return (
-        <div className={styles.emptyCart}>
-            <img src="../public/emptyCart.png" alt="empty" />
-            <p>Your Cart Is Empty</p>
-            <span>Looks Like You Haven't Made Your Choise Yet...</span>
-        </div>
-    );
-}
 
 function Cards({ info }) {
     return (

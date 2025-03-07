@@ -1,4 +1,4 @@
-import { createContext, useEffect, useReducer } from 'react';
+import { createContext, useEffect, useReducer, useState } from 'react';
 import { PulseLoader } from 'react-spinners';
 import ErrorPage from '../pages/ErrorPage';
 
@@ -19,27 +19,37 @@ function reducer(state, action) {
             return { isLoading: false, error: action.payload, data: [] };
 
         default:
-            throw new new Error('Action is not defined')();
+            throw new Error('Action is not defined');
     }
 }
 
 function ProductsProvider({ children }) {
     const [state, dispatchProducts] = useReducer(reducer, initialState);
-    const products = state.data;
+    const [displayProducts, setDisplayProducts] = useState([]);
 
     useEffect(() => {
         fetch('https://fakestoreapi.com/products')
             .then((res) => res.json())
-            .then((json) =>
-                dispatchProducts({ type: 'SUCCESS', payload: json }),
-            )
+            .then((json) => {
+                dispatchProducts({ type: 'SUCCESS', payload: json });
+                setDisplayProducts(json);
+            })
             .catch((error) =>
-                dispatchProducts({ type: 'FAILED', payload: error.message }),
+                dispatchProducts({
+                    type: 'FAILED',
+                    payload: error?.message || 'Something went wrong',
+                }),
             );
     }, []);
 
     return (
-        <ProductsContext.Provider value={{ products, dispatchProducts }}>
+        <ProductsContext.Provider
+            value={{
+                products: state.data,
+                displayProducts,
+                setDisplayProducts,
+            }}
+        >
             {state.isLoading && (
                 <div className="loading">
                     <PulseLoader />

@@ -26,10 +26,37 @@
 }
 .footer div {
     margin: 0 auto;
-    max-width: 250px;
+    max-width: 280px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+.footerBtn {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.4em;
+    max-height: 40px;
+    position: relative;
+}
+.count {
+    background-color: red;
+    position: absolute;
+    bottom: 0px;
+    right: -18px;
+    width: 2px;
+    font-size: 1.2rem;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    padding: 0.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+.footerBtn:not(.active) span {
+    font-size: 0.6rem;
 }
 
 .icons {
