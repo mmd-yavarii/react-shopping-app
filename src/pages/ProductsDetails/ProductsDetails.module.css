@@ -1,3 +1,8 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
 .imageComtainer {
     display: flex;
     gap: 2em;

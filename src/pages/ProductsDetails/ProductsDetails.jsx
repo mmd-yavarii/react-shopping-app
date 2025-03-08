@@ -46,7 +46,7 @@ function ProductsDetails() {
     }
 
     return (
-        <div>
+        <div className={styles.container}>
             <div className={styles.imageComtainer}>
                 <div className={styles.cardNav}>
                     <IoMdArrowRoundBack

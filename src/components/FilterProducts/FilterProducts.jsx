@@ -60,7 +60,7 @@ function FilterProducts() {
     function searchHandle() {
         if (searchInp.length) {
             const newSearchParams = new URLSearchParams();
-            newSearchParams.set('search', searchInp);
+            newSearchParams.set('search', searchInp.trim());
             setSearchParams(newSearchParams, { replace: true });
         }
     }
