@@ -7,24 +7,42 @@ import styles from './FilterProducts.module.css';
 import { useSearchParams } from 'react-router-dom';
 
 function FilterProducts() {
-    const [searchInp, setSearchInp] = useState('');
+    // queries
+    const [searchParams, setSearchParams] = useSearchParams();
+    const categoryQuery = searchParams.get('category') || 'all';
+    const searchQuery = searchParams.get('search') || '';
+
+    const [searchInp, setSearchInp] = useState(searchQuery);
     const { displayProducts, products, setDisplayProducts } =
         useContext(ProductsContext);
 
-    // queries
-    const [searchParams, setSearchParams] = useSearchParams();
-    const categorySelected = searchParams.get('category') || 'all';
-
     // set filters with queries
     useEffect(() => {
-        if (categorySelected != 'all') {
-            setDisplayProducts(
-                products.filter((i) => i.category == categorySelected),
+        let filteredProducts = products;
+
+        if (categoryQuery !== 'all') {
+            filteredProducts = filteredProducts.filter(
+                (i) => i.category === categoryQuery,
             );
-        } else {
-            setDisplayProducts(products);
         }
-    }, [searchParams]);
+
+        if (searchQuery.trim()) {
+            filteredProducts = filteredProducts.filter((i) =>
+                i.title.toLowerCase().includes(searchQuery.toLowerCase()),
+            );
+        }
+
+        setDisplayProducts(filteredProducts);
+    }, [categoryQuery, searchQuery, products]);
+
+    // clear search query string when inp is empty
+    useEffect(() => {
+        if (!searchInp.length) {
+            const newSearchParams = new URLSearchParams(searchParams);
+            newSearchParams.delete('search');
+            setSearchParams(newSearchParams, { replace: true });
+        }
+    }, [searchInp]);
 
     // category items for create filter buttons
     const categories = ['all', ...new Set(products.map((i) => i.category))];
@@ -38,6 +56,15 @@ function FilterProducts() {
         setSearchParams(newSearchParams, { replace: true });
     }
 
+    // set search query
+    function searchHandle() {
+        if (searchInp.length) {
+            const newSearchParams = new URLSearchParams();
+            newSearchParams.set('search', searchInp);
+            setSearchParams(newSearchParams, { replace: true });
+        }
+    }
+
     return (
         <div className={styles.container}>
             <div className={styles.search}>
@@ -47,7 +74,7 @@ function FilterProducts() {
                     value={searchInp}
                     onChange={(e) => setSearchInp(e.target.value)}
                 />
-                <button>
+                <button onClick={searchHandle}>
                     <IoSearchSharp fontSize="1.2rem" />
                 </button>
             </div>
@@ -58,7 +85,7 @@ function FilterProducts() {
                         key={index}
                         onClick={setCategoryHandler}
                         className={
-                            categorySelected == item
+                            categoryQuery == item
                                 ? styles.activeilterBtn
                                 : styles.filerBtns
                         }

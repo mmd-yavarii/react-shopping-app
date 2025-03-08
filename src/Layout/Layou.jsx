@@ -69,6 +69,7 @@ function Layou({ children }) {
                             )}
                             <span>Bookmarks</span>
                         </NavLink>
+
                         <NavLink
                             replace={true}
                             to="/profile"

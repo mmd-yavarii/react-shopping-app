@@ -53,7 +53,6 @@
     transition: background 0.3s ease;
 
     background-color: transparent;
-    border: 1px solid var(--them-color);
     color: var(--them-color);
-    background-color: #fff;
+    background-color: #1e8fff24;
 }

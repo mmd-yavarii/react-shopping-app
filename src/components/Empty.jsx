@@ -9,7 +9,7 @@ function Empty({ title, message, icon }) {
             color: '#555',
             fontSize: '1rem',
             textAlign: 'center',
-            height: '70vh',
+            height: '60vh',
         },
         icon: {
             fontSize: '3rem',
