@@ -16,6 +16,10 @@ function CartPage() {
         .toFixed(2);
 
     useEffect(() => {
+        window.scrollTo(0, 0);
+    });
+
+    useEffect(() => {
         const uniqueItems = cart.filter(
             (item, index, self) =>
                 index === self.findIndex((i) => i.id === item.id),

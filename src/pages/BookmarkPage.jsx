@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { BookmarkContext } from '../contexts/BookmarkProvider/BookmarkProvider';
 import ProductCard from '../components/ProductCard/ProductCard';
 import Empty from '../components/Empty';
@@ -7,6 +7,10 @@ import { TbBookmarksOff } from 'react-icons/tb';
 
 function BookmarkPage() {
     const { bookmarks, dispatchBookmarks } = useContext(BookmarkContext);
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    });
 
     const clearStyle = {
         color: 'red',

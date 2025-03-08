@@ -3,12 +3,16 @@ import FilterProducts from '../components/FilterProducts/FilterProducts';
 
 import { TbFileSad } from 'react-icons/tb';
 
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { ProductsContext } from '../contexts/ProductsProvider';
 import Empty from '../components/Empty';
 
 function HomePage() {
     const { displayProducts } = useContext(ProductsContext);
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    });
 
     return (
         <div>

@@ -59,6 +59,9 @@ footer a:not(.active) {
 }
 
 @media (max-width: 700px) {
+    :root {
+        font-size: 18px;
+    }
     a {
         cursor: default;
     }

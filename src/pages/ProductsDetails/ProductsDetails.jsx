@@ -23,6 +23,10 @@ function ProductsDetails() {
     const [isBookmark, setIsBookmark] = useState(false);
 
     useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [id]);
+
+    useEffect(() => {
         setIsBookmark(bookmarks.some((i) => i.id == id));
     }, [bookmarks]);
 
