@@ -6,7 +6,7 @@ import { addNewProduct } from '../../services/API.js';
 
 const initialState = {
     title: '',
-    price: 0,
+    price: '',
     category: '',
     description: '',
     image: '',

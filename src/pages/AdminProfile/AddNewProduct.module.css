@@ -10,13 +10,13 @@
 }
 
 .container input {
-    padding: 0.6em;
+    padding: 1em;
     border: 1px solid var(--border-color);
     border-radius: 10px;
 }
 .container button {
     background-color: var(--them-color);
-    padding: 0.6em;
+    padding: 1em;
     color: #fff;
     border-radius: 10px;
 }
