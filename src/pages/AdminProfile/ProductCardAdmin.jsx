@@ -16,10 +16,20 @@ function ProductCardAdmin({
                 method: 'DELETE',
             })
                 .then((response) => response.json())
+
                 .then((data) => {
-                    dispatchProducts({ type: 'DELETE', payload: data.id });
-                    dispatchCart({ type: 'DELETE_PRODUCT', payload: data.id });
-                    dispatchBookmarks({ type: 'REMOVE', payload: data.id });
+                    if (data) {
+                        dispatchProducts({ type: 'DELETE', payload: data.id });
+                        dispatchCart({
+                            type: 'DELETE_PRODUCT',
+                            payload: data.id,
+                        });
+                        dispatchBookmarks({ type: 'REMOVE', payload: data.id });
+                    } else {
+                        alert(
+                            'The data with this information has not been stored on the server.',
+                        );
+                    }
                 });
         }
     }

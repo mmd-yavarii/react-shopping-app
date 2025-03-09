@@ -2,22 +2,16 @@ import { useReducer } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import styles from './AddNewProduct.module.css';
+import { addNewProduct } from '../../services/API.js';
 
 const initialState = {
-    id: null,
     title: '',
     price: 0,
     category: '',
     description: '',
     image: '',
-    rating: {
-        rate: 0,
-        count: 0,
-    },
 };
 function reducer(state, action) {
-    state = { ...state, id: uuidv4() };
-
     switch (action.type) {
         case 'title':
             return { ...state, title: action.payload };
@@ -34,18 +28,46 @@ function reducer(state, action) {
         case 'image':
             return { ...state, image: action.payload };
 
+        case 'clear':
+            return {
+                title: '',
+                price: 0,
+                category: '',
+                description: '',
+                image: '',
+            };
+
         default:
             return state;
     }
 }
 
-function AddNewProduct() {
+function AddNewProduct({ dispatchProducts }) {
     const [newProduct, dispachNewProduct] = useReducer(reducer, initialState);
 
+    // add new product
     function submitHandler(event) {
         event.preventDefault();
 
-        console.log(newProduct);
+        fetch(addNewProduct, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newProduct),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                data.price = +data.price;
+                dispatchProducts({
+                    type: 'ADD_NEW_PRODUCT',
+                    payload: {
+                        ...data,
+                        rating: { rate: 0.0, count: 0 },
+                    },
+                }),
+                    alert('Product added succesfuly');
+                dispachNewProduct({ type: 'clear' });
+            })
+            .catch((error) => alert(error.message));
     }
 
     return (
@@ -53,6 +75,7 @@ function AddNewProduct() {
             <input
                 type="text"
                 placeholder="title"
+                required={true}
                 value={newProduct.title}
                 onChange={(e) =>
                     dispachNewProduct({
@@ -65,6 +88,7 @@ function AddNewProduct() {
             <input
                 type="number"
                 placeholder="price"
+                required={true}
                 value={newProduct.price}
                 onChange={(e) =>
                     dispachNewProduct({
@@ -76,6 +100,7 @@ function AddNewProduct() {
             <input
                 type="text"
                 placeholder="category"
+                required={true}
                 value={newProduct.category}
                 onChange={(e) =>
                     dispachNewProduct({
@@ -87,6 +112,7 @@ function AddNewProduct() {
             <input
                 type="text"
                 placeholder="description"
+                required={true}
                 value={newProduct.description}
                 onChange={(e) =>
                     dispachNewProduct({
@@ -98,6 +124,7 @@ function AddNewProduct() {
             <input
                 type="file"
                 accept="image/*"
+                required={true}
                 onChange={(e) => {
                     const file = e.target.files[0];
                     if (file) {

@@ -20,7 +20,7 @@ function AdminProfile() {
     return (
         <>
             <span style={sessionTitleStyle}>Add New Product</span>
-            <AddNewProduct />
+            <AddNewProduct dispatchProducts={dispatchProducts} />
 
             <span style={sessionTitleStyle}>Conroll Products</span>
             <div>

@@ -25,6 +25,12 @@ function reducer(state, action) {
                 data: state.data.filter((i) => i.id != action.payload),
             };
 
+        case 'ADD_NEW_PRODUCT':
+            return {
+                ...state,
+                data: [...state.data, action.payload],
+            };
+
         default:
             throw new Error('Action is not defined');
     }
