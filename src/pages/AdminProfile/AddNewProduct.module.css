@@ -1,0 +1,22 @@
+.container {
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    padding: 1em;
+    gap: 0.5em;
+
+    padding-bottom: 1em;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.container input {
+    padding: 0.6em;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+}
+.container button {
+    background-color: var(--them-color);
+    padding: 0.6em;
+    color: #fff;
+    border-radius: 10px;
+}
