@@ -1,5 +1,5 @@
 import { useContext, useEffect } from 'react';
-import { BookmarkContext } from '../contexts/BookmarkProvider/BookmarkProvider';
+import { BookmarkContext } from '../contexts/BookmarkProvider';
 import ProductCard from '../components/ProductCard/ProductCard';
 import Empty from '../components/Empty';
 

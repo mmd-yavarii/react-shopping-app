@@ -7,7 +7,7 @@ import App from './App.jsx';
 import { BrowserRouter } from 'react-router-dom';
 import ProductsProvider from './contexts/ProductsProvider.jsx';
 import CartProvider from './contexts/CartProvider.jsx';
-import BookmarkProvider from './contexts/BookmarkProvider/BookmarkProvider.jsx';
+import BookmarkProvider from './contexts/BookmarkProvider.jsx';
 
 createRoot(document.getElementById('root')).render(
     <StrictMode>

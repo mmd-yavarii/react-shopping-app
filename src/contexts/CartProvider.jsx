@@ -10,6 +10,9 @@ function reducer(state, action) {
         case 'REMOVE':
             const index = state.findIndex((i) => i.id === action.payload);
             return state.filter((i, ind) => ind != index);
+
+        case 'DELETE_PRODUCT':
+            return state.filter((i) => i.id != action.payload);
     }
 }
 

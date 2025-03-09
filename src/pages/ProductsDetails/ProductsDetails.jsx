@@ -9,7 +9,7 @@ import { useState, useContext, useEffect } from 'react';
 import QuantityControls from '../../components/QuantityControls/QuantityControls';
 
 import { CartContext } from '../../contexts/CartProvider';
-import { BookmarkContext } from '../../contexts/BookmarkProvider/BookmarkProvider';
+import { BookmarkContext } from '../../contexts/BookmarkProvider';
 
 function ProductsDetails() {
     const { cart, dispatchCart } = useContext(CartContext);

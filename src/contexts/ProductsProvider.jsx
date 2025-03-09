@@ -19,6 +19,12 @@ function reducer(state, action) {
         case 'FAILED':
             return { isLoading: false, error: action.payload, data: [] };
 
+        case 'DELETE':
+            return {
+                ...state,
+                data: state.data.filter((i) => i.id != action.payload),
+            };
+
         default:
             throw new Error('Action is not defined');
     }
@@ -49,6 +55,7 @@ function ProductsProvider({ children }) {
                 products: state.data,
                 displayProducts,
                 setDisplayProducts,
+                dispatchProducts,
             }}
         >
             {state.isLoading && (

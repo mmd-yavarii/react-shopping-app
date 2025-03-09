@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { CartContext } from '../contexts/CartProvider';
-import { BookmarkContext } from '../contexts/BookmarkProvider/BookmarkProvider';
+import { BookmarkContext } from '../contexts/BookmarkProvider';
 
 import { NavLink, useLocation, Link } from 'react-router-dom';
 
@@ -8,7 +8,7 @@ import { GoHomeFill } from 'react-icons/go';
 import { FaShoppingCart } from 'react-icons/fa';
 import { IoBookmarks } from 'react-icons/io5';
 import { FaUser } from 'react-icons/fa6';
-import { RiAdminFill } from 'react-icons/ri';
+import { FaUserCog } from 'react-icons/fa';
 
 import styles from './Layout.module.css';
 
@@ -84,7 +84,7 @@ function Layou({ children, isAdmin, isLogin }) {
                         >
                             {isAdmin ? (
                                 <>
-                                    <RiAdminFill className={styles.icons} />
+                                    <FaUserCog className={styles.icons} />
                                     <span>Admin</span>
                                 </>
                             ) : (

@@ -1,3 +1,5 @@
 const getProducts = `https://fakestoreapi.com/products`;
 
-export { getProducts };
+const deleteProduct = (id) => `https://fakestoreapi.com/products/${id}`;
+
+export { getProducts, deleteProduct };
