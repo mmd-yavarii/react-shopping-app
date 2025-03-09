@@ -2,7 +2,7 @@ function ErrorPage({ message }) {
     return (
         <div
             style={{
-                fontSize: '3rem',
+                fontSize: '1.8rem',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',

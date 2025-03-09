@@ -1,6 +1,7 @@
 import { createContext, useEffect, useReducer, useState } from 'react';
 import { PulseLoader } from 'react-spinners';
 import ErrorPage from '../pages/ErrorPage';
+import { getProducts } from '../services/API.js';
 
 const ProductsContext = createContext();
 
@@ -28,7 +29,7 @@ function ProductsProvider({ children }) {
     const [displayProducts, setDisplayProducts] = useState([]);
 
     useEffect(() => {
-        fetch('https://fakestoreapi.com/products')
+        fetch(getProducts)
             .then((res) => res.json())
             .then((json) => {
                 dispatchProducts({ type: 'SUCCESS', payload: json });

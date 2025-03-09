@@ -2,16 +2,17 @@ import { useContext } from 'react';
 import { CartContext } from '../contexts/CartProvider';
 import { BookmarkContext } from '../contexts/BookmarkProvider/BookmarkProvider';
 
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, Link } from 'react-router-dom';
 
 import { GoHomeFill } from 'react-icons/go';
 import { FaShoppingCart } from 'react-icons/fa';
 import { IoBookmarks } from 'react-icons/io5';
 import { FaUser } from 'react-icons/fa6';
+import { RiAdminFill } from 'react-icons/ri';
 
 import styles from './Layout.module.css';
 
-function Layou({ children }) {
+function Layou({ children, isAdmin, isLogin }) {
     const loacation = useLocation().pathname;
     const { cart } = useContext(CartContext);
     const { bookmarks } = useContext(BookmarkContext);
@@ -23,7 +24,7 @@ function Layou({ children }) {
                     <p>
                         {loacation == '/'
                             ? 'explore'
-                            : loacation.replace('/', '')}
+                            : loacation.replaceAll('/', ' ')}
                     </p>
                 </header>
             )}
@@ -72,11 +73,26 @@ function Layou({ children }) {
 
                         <NavLink
                             replace={true}
-                            to="/profile"
                             className={styles.footerBtn}
+                            to={
+                                isLogin
+                                    ? isAdmin
+                                        ? '/profile/admin'
+                                        : '/profile/user'
+                                    : '/login'
+                            }
                         >
-                            <FaUser className={styles.icons} />
-                            <span>Profile</span>
+                            {isAdmin ? (
+                                <>
+                                    <RiAdminFill className={styles.icons} />
+                                    <span>Admin</span>
+                                </>
+                            ) : (
+                                <>
+                                    <FaUser className={styles.icons} />
+                                    <span>Profile</span>
+                                </>
+                            )}
                         </NavLink>
                     </div>
                 </footer>
