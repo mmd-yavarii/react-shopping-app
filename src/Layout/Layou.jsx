@@ -27,7 +27,7 @@ function Layou({ children, isAdmin, isLogin }) {
         if (confirmation) {
             document.cookie = '';
             setLoginData({ token: '', role: '' });
-            navigate('/');
+            navigate('/', { replace: true });
         }
     }
 

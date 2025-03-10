@@ -4,6 +4,8 @@
     flex-direction: column;
     padding: 1em;
     height: 70dvh;
+    max-width: 400px;
+    margin: auto;
     justify-content: center;
 }
 

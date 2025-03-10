@@ -1,5 +1,6 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 
+import { LuShare } from 'react-icons/lu';
 import { IoMdArrowRoundBack } from 'react-icons/io';
 import { TiStarFullOutline } from 'react-icons/ti';
 import { FaRegHeart, FaHeart } from 'react-icons/fa6';
@@ -49,6 +50,14 @@ function ProductsDetails() {
         dispatchBookmarks({ type: 'REMOVE', payload: id });
     }
 
+    // share page url
+    function sharePage() {
+        navigator.share({
+            title: document.title,
+            url: window.location.href,
+        });
+    }
+
     return (
         <div className={styles.container}>
             <div className={styles.imageComtainer}>
@@ -58,15 +67,24 @@ function ProductsDetails() {
                         onClick={() => navigate(-1)}
                     />
 
-                    {isBookmark ? (
-                        <FaHeart
-                            color="red"
-                            fontSize="1.3rem"
-                            onClick={removeBookmark}
-                        />
-                    ) : (
-                        <FaRegHeart fontSize="1.3rem" onClick={addBookmark} />
-                    )}
+                    <div>
+                        <button onClick={sharePage} className={styles.shareBtn}>
+                            <LuShare fontSize="1.3rem" />
+                        </button>
+
+                        {isBookmark ? (
+                            <FaHeart
+                                color="red"
+                                fontSize="1.3rem"
+                                onClick={removeBookmark}
+                            />
+                        ) : (
+                            <FaRegHeart
+                                fontSize="1.3rem"
+                                onClick={addBookmark}
+                            />
+                        )}
+                    </div>
                 </div>
 
                 <img src={image} alt={title} />
@@ -97,7 +115,7 @@ function ProductsDetails() {
                     <QuantityControls info={info} />
                 ) : (
                     <button className={styles.buy} onClick={addToCartHandler}>
-                        buy
+                        Buy
                     </button>
                 )}
             </div>

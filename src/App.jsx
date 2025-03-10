@@ -4,7 +4,7 @@ import Layou from './Layout/Layou';
 import HomePage from './pages/HomePage';
 import CartPage from './pages/CartPage/CartPage';
 import BookmarkPage from './pages/BookmarkPage';
-import ProfilePage from './pages/ProfilePage/ProfilePage';
+import ProfilePage from './pages/ProfilePage';
 import ProductsDetails from './pages/ProductsDetails/ProductsDetails';
 import ErrorPage from './pages/ErrorPage';
 import AdminProfile from './pages/AdminProfile/AdminProfile';
