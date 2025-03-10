@@ -11,13 +11,15 @@ import AdminProfile from './pages/AdminProfile/AdminProfile';
 import UserProfile from './pages/UserProfile/UserProfile';
 import LoginPage from './pages/LoginPage/LoginPage';
 
+import { useContext } from 'react';
+import { LoginContext } from './contexts/LoginInfoProvider';
+
 function App() {
-    const isAdmin = true;
-    const isLogin = true;
+    const { role, token } = useContext(LoginContext);
 
     return (
         <>
-            <Layou isAdmin={isAdmin} isLogin={isLogin}>
+            <Layou isAdmin={role == 'admin'} isLogin={token}>
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/product/:id" element={<ProductsDetails />} />
@@ -26,15 +28,15 @@ function App() {
                     <Route path="/*" element={<ErrorPage message="404" />} />
                     {/* nesed roue for admin or user profile */}
                     <Route
-                        path={isLogin ? '/profile' : '/login'}
-                        element={isLogin ? <ProfilePage /> : <LoginPage />}
+                        path={token ? '/profile' : '/login'}
+                        element={token ? <ProfilePage /> : <LoginPage />}
                     >
-                        {isLogin && (
+                        {token && (
                             <>
                                 <Route
                                     path="/profile/admin"
                                     element={
-                                        isAdmin ? (
+                                        role == 'admin' ? (
                                             <AdminProfile />
                                         ) : (
                                             <Navigate to="/" replace={true} />

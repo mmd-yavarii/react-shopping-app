@@ -1,8 +1,9 @@
 import { useContext } from 'react';
 import { CartContext } from '../contexts/CartProvider';
 import { BookmarkContext } from '../contexts/BookmarkProvider';
+import { LoginContext } from '../contexts/LoginInfoProvider';
 
-import { NavLink, useLocation, Link } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 
 import { GoHomeFill } from 'react-icons/go';
 import { FaShoppingCart } from 'react-icons/fa';
@@ -13,9 +14,22 @@ import { FaUserCog } from 'react-icons/fa';
 import styles from './Layout.module.css';
 
 function Layou({ children, isAdmin, isLogin }) {
+    const navigate = useNavigate();
+    const { setLoginData } = useContext(LoginContext);
+
     const loacation = useLocation().pathname;
     const { cart } = useContext(CartContext);
     const { bookmarks } = useContext(BookmarkContext);
+
+    // logout handler
+    function logOutHandler() {
+        const confirmation = confirm('Are You Sure ?');
+        if (confirmation) {
+            document.cookie = '';
+            setLoginData({ token: '', role: '' });
+            navigate('/');
+        }
+    }
 
     return (
         <div>
@@ -26,6 +40,15 @@ function Layou({ children, isAdmin, isLogin }) {
                             ? 'explore'
                             : loacation.replaceAll('/', ' ')}
                     </p>
+
+                    {loacation.includes('profile') && (
+                        <button
+                            className={styles.logout}
+                            onClick={logOutHandler}
+                        >
+                            Logout
+                        </button>
+                    )}
                 </header>
             )}
 

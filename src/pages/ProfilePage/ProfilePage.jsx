@@ -1,8 +1,6 @@
 import { useEffect } from 'react';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 
-import styles from './ProfilePage.module.css';
-
 function ProfilePage({ userOrAdmin }) {
     const location = useLocation().pathname;
     const navigate = useNavigate();
