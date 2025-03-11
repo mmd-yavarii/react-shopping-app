@@ -1,0 +1,37 @@
+.container {
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.image {
+    width: 4em;
+    height: 4em;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+}
+
+.conction {
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+}
+.conction a {
+    background-color: #fff;
+    padding: 1em;
+    color: var(--text-color);
+    margin: 0.2em 0;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+}
+.conction p {
+    opacity: 0.7;
+    font-size: 0.8rem;
+    margin: 1em 0;
+}
